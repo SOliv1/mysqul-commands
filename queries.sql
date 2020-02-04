@@ -67,3 +67,8 @@ Select all of the columns for every record in the `Track`
 table
 */
 select * from Track;
+
+/*
+Select all of the names from the `MediaType` table
+*/
+select Name from MediaType;
