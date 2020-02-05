@@ -22,7 +22,7 @@ SELECT
     concat(Customer.FirstName, " ", Customer.LastName) as Name,
     Invoice.InvoiceDate as Date,
     Invoice.Total
-FROM Invoice
+FROM Invoicecoun
 INNER JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
 ORDER BY Total DESC
 LIMIT 10;
@@ -53,3 +53,17 @@ WHERE InvoiceId = 2;
 
 SELECT SUM(UnitPrice * Quantity) FROM InvoiceLine
 WHERE InvoiceId = 2;
+
+
+SELECT COUNT(city) FROM Customer WHERE city = "Berlin";
+
+SELECT SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity), Track.Name AS Track FROM InvoiceLine
+JOIN Track ON InvoiceLine.TrackId = Track.TrackId
+WHERE Track.Name = "The Woman King";
+
+SELECT Artist.Name AS Artist, COUNT(Track.TrackId) AS Track FROM Artist
+JOIN Album ON Artist.ArtistId = Album.ArtistId
+JOIN Track ON Album.AlbumId = Track.AlbumId
+GROUP BY Artist.Name
+ORDER BY COUNT(Artist.Name)
+DESC LIMIT 5;
