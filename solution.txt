@@ -26,3 +26,30 @@ FROM Invoice
 INNER JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
 ORDER BY Total DESC
 LIMIT 10;
+
+
+SELECT COUNT(FirstName) FROM Customer WHERE SupportRepId = 4;
+
+
+SELECT Employee.FirstName AS Employee, COUNT(Customer.FirstName) AS Customer FROM Employee
+JOIN Customer ON Customer.SupportRepId = Employee.EmployeeId
+WHERE Employee.FirstName = 'Jane';
+
+SELECT MIN(LastName) FROM Customer;
+
+SELECT MIN(BirthDate) FROM Employee;
+
+SELECT MAX(LastName) FROM Customer;
+
+SELECT MAX(HireDate) FROM Employee;
+
+SELECT MAX(HireDate) FROM Employee;
+
+mysql> SELECT ROUND(AVG(TOTAL), 2) from Invoice;
+
+
+SELECT TOTAL FROM Invoice
+WHERE InvoiceId = 2;
+
+SELECT SUM(UnitPrice * Quantity) FROM InvoiceLine
+WHERE InvoiceId = 2;
