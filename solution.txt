@@ -1,0 +1,28 @@
+/*
+Select the `InvoiceDate`, `BillingAddress` and `Total` from the
+`Invoice` table. Order them descendingly according to the `InvoiceDate`
+*/
+SELECT InvoiceDate, BillingAddress, Total FROM Invoice ORDER BY InvoiceDate DESC;
+
+/*
+Select the `InvoiceDate`, `BillingCity` and `Total` from the
+`Invoice` table. Order them descendingly and limit the results
+to 5
+*/
+SELECT InvoiceDate, BillingCity, Total FROM Invoice
+ORDER BY Total DESC
+LIMIT 5;
+*
+
+SELECT EmployeeId, LastName, FirstName, HireDate FROM Employee
+ORDER BY HireDate DESC
+LIMIT 3;
+
+SELECT 
+    concat(Customer.FirstName, " ", Customer.LastName) as Name,
+    Invoice.InvoiceDate as Date,
+    Invoice.Total
+FROM Invoice
+INNER JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+ORDER BY Total DESC
+LIMIT 10;

@@ -180,11 +180,3 @@ SELECT Track.Name, Album.Title FROM Track
 INNER JOIN Album on Track.AlbumId = Album.AlbumId
 ORDER BY Album.Title, Track.Name;
 
-/*
-Select the `InvoiceDate`, `BillingCity` and `Total` from the
-`Invoice` table. Order them descendingly and limit the results
-to 5
-*/
-SELECT InvoiceDate, BillingCity, Total FROM Invoice
-ORDER BY Total DESC
-LIMIT 5;
