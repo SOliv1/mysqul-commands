@@ -14,7 +14,8 @@ connection = pymysql.connect(host='localhost',
 # Run queries
 try:
     with connection.cursor() as cursor:
-        cursor.execute("UPDATE Friends SET age = 22 WHERE name = 'bob';")
+        cursor.execute("UPDATE Friends SET age = %s WHERE name = %s;",
+                       (23, 'bob'))
         # Note that the above will still display a warning (not error) if the
         # table already exists
         connection.commit()
