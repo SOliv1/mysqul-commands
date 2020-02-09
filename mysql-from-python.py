@@ -14,7 +14,8 @@ connection = pymysql.connect(host='localhost',
 # Run queries
 try:
     with connection.cursor() as cursor:
-        rows = cursor.execute("DELETE FROM Friends WHERE name = 'bob';")
+        rows = cursor.executemany("DELETE FROM Friends WHERE name = %s;", ['bob', 'jim'])
+        connection.commit()
         # Note that the above will still display a warning (not error) if the
         # table already exists
         connection.commit()
